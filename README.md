@@ -4,23 +4,6 @@ Aplicación de catálogo con autenticación (invitado/admin), carrito de compras
 
 > Aviso: Este sitio es exclusivamente con fines educativos/demostrativos. No representa una tienda real, no comercializa productos y ningún dato ingresado será usado con fines comerciales.
 
-## Deploy (GitHub Pages vía Actions)
-
-El despliegue se realiza automáticamente usando el workflow `.github/workflows/deploy-gh-pages.yml` al hacer `git push` sobre `main`.
-
-Flujo:
-1. Push a `main`.
-2. Action instala dependencias (`npm install --legacy-peer-deps`).
-3. Ejecuta `npm run build`.
-4. Publica artefacto `dist/` usando `deploy-pages` (sin necesidad de rama `gh-pages`).
-5. La URL se muestra en el job final de Actions.
-
-Verificación rápida:
-```powershell
-git push
-# Abrir Actions en GitHub → último run → confirmar "Deploy to GitHub Pages" OK
-```
-
 ## Uso rápido
 
 - Inicio de sesión:
@@ -45,13 +28,6 @@ git push
 
 - `npm run dev`: arranca el servidor de desarrollo.
 - `npm run build`: genera el build de producción.
-- `npm run preview`: sirve el build generado.
-- `npm run lint`: ejecuta ESLint.
-
-## Notas de accesibilidad
-
-- Se usan `aria-label`, `role="main"` y `aria-labelledby` en páginas y controles.
-- Iconos con `react-icons` marcados como decorativos (`aria-hidden`) y enlaces/botones con texto accesible.
 
 ## Estructura (resumen)
 
