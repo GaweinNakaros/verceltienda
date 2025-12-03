@@ -1,0 +1,247 @@
+/* ========================================
+   COMPONENTE CATEGORÍAS SLIDER
+   ======================================== */
+
+/* Contenedor de la sección de categorías */
+.categorias-section {
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 20px 20px;
+}
+
+/* Título de la sección */
+.categorias-titulo {
+  text-align: center;
+  font-size: 2rem;
+  margin-bottom: 20px;
+  color: #333;
+  font-weight: 600;
+}
+
+/* Contenedor del slider de categorías con flechas */
+.categorias-slider-container {
+  position: relative;
+  display: flex;
+  align-items: center;
+  max-width: 100%;
+  margin: 0 auto;
+  padding: 0 50px;
+}
+
+/* Cuando no hay desbordamiento, reducir padding lateral */
+.categorias-slider-container.sin-flechas {
+  padding: 0 20px;
+}
+
+/* Wrapper para el grid con overflow hidden */
+.categorias-grid-wrapper {
+  overflow: hidden;
+  padding: 10px 0;
+  width: 100%;
+  position: relative;
+}
+
+/* Solo centrar cuando NO hay desbordamiento */
+.categorias-slider-container.sin-flechas .categorias-grid-wrapper {
+  display: flex;
+  justify-content: center;
+}
+
+/* Grid de categorías - centradas en una línea horizontal */
+.categorias-grid {
+  display: flex;
+  flex-wrap: nowrap;
+  gap: 10px;
+  transition: transform 0.5s ease-in-out;
+  padding: 0;
+  width: fit-content;
+}
+
+/* Cuando NO hay desbordamiento, centrar las categorías */
+.categorias-slider-container.sin-flechas .categorias-grid {
+  justify-content: center;
+  width: 100%;
+}
+
+/* Flechas de navegación */
+.categoria-flecha {
+  position: absolute; 
+  top: 50%;
+  transform: translateY(-50%);
+  width: 45px;
+  height: 45px;
+  min-width: 45px;
+  min-height: 45px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  color: white;
+  border: none;
+  font-size: 1.8rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(102, 126, 234, 0.4);
+  transition: all 0.3s ease;
+}
+
+.categoria-flecha:hover {
+  background: linear-gradient(135deg, #764ba2 0%, #667eea 100%);
+  box-shadow: 0 6px 15px rgba(102, 126, 234, 0.6);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.categoria-flecha:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.categoria-flecha-izq {
+  left: 0;
+}
+
+.categoria-flecha-der {
+  right: 0;
+}
+
+/* Cada icono de categoría */
+.categoria-icono {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  gap: 8px;
+  cursor: pointer;
+  transition: transform 0.3s ease;
+  padding: 0;
+  flex-shrink: 0;
+  width: 100px;
+  max-width: 100px;
+}
+
+/* Efecto hover en categoría */
+.categoria-icono:hover {
+  transform: translateY(-5px);
+}
+
+/* Efecto de focus para accesibilidad */
+.categoria-icono:focus {
+  outline: 2px solid #667eea;
+  outline-offset: 4px;
+}
+
+/* Placeholder para el icono */
+.icono-placeholder {
+  width: 100%;
+  aspect-ratio: 1 / 1;
+  border-radius: 12px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  box-shadow: 0 4px 15px rgba(102, 126, 234, 0.3);
+  transition: all 0.3s ease;
+  overflow: hidden;
+  position: relative;
+}
+
+/* Imagen de categoría */
+.icono-placeholder img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  display: block;
+}
+
+/* Hover en el placeholder del icono */
+.categoria-icono:hover .icono-placeholder {
+  box-shadow: 0 6px 20px rgba(102, 126, 234, 0.5);
+  transform: scale(1.05);
+}
+
+/* Texto temporal del icono (primera letra) */
+.icono-texto {
+  font-size: 3rem;
+  font-weight: bold;
+  color: white;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+/* Nombre de la categoría */
+.categoria-nombre {
+  font-size: 0.95rem;
+  color: #333;
+  font-weight: 500;
+  text-align: center;
+  margin: 0;
+}
+
+/* ========================================
+   RESPONSIVE - TABLET
+   ======================================== */
+
+@media (max-width: 768px) {
+  .categorias-slider-container {
+    padding: 0 30px;
+  }
+  
+  .categoria-flecha {
+    width: 38px;
+    height: 38px;
+    min-width: 38px;
+    min-height: 38px;
+    font-size: 1.6rem;
+  }
+  
+  .categoria-icono {
+    width: 85px;
+    max-width: 85px;
+    gap: 6px;
+  }
+  
+  .categorias-grid {
+    gap: 8px;
+  }
+  
+  .icono-texto {
+    font-size: 2.5rem;
+  }
+  
+  .categorias-titulo {
+    font-size: 1.5rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
+
+@media (max-width: 480px) {
+  .categorias-slider-container {
+    padding: 0 20px;
+  }
+  
+  .categoria-flecha {
+    width: 32px;
+    height: 32px;
+    min-width: 32px;
+    min-height: 32px;
+    font-size: 1.4rem;
+  }
+  
+  .categoria-icono {
+    width: 75px;
+    max-width: 75px;
+    gap: 5px;
+  }
+  
+  .categorias-grid {
+    gap: 7px;
+  }
+  
+  .icono-texto {
+    font-size: 1.8rem;
+  }
+}

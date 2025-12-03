@@ -1,0 +1,184 @@
+/* ========================================
+   COMPONENTE PROMOCIONES DESTACADAS
+   ======================================== */
+
+/* Sección de promociones */
+.promociones-section {
+  width: calc(100% - 30px);
+  padding: 10px 0;
+  margin: 0 15px 20px 15px;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Contenedor de las tarjetas de promociones */
+.promociones-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0;
+  display: flex;
+  gap: 15px;
+  justify-content: center;
+  align-items: stretch;
+  flex-wrap: wrap;
+}
+
+/* Tarjeta de promoción individual */
+.promo-card {
+  flex: 1 1 calc(33.333% - 15px);
+  max-width: 350px;
+  min-width: 180px;
+  height: 50px;
+  background: white;
+  padding: 8px 15px;
+  border-radius: 8px;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+  text-align: center;
+  transition: all 0.3s ease;
+  cursor: pointer;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.promo-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 8px 15px rgba(0, 0, 0, 0.2);
+}
+
+.promo-card h3 {
+  font-size: 0.9rem;
+  font-weight: 700;
+  color: #2c3e50;
+  margin: 0;
+  line-height: 1.2;
+}
+
+.promo-card p {
+  font-size: 0.7rem;
+  color: #7f8c8d;
+  line-height: 1;
+  margin: 2px 0 0 0;
+}
+
+/* Icono de la promoción */
+.promo-icono {
+  width: 24px;
+  height: 24px;
+  margin-bottom: 4px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.promo-icono img {
+  width: 100%;
+  height: 100%;
+  object-fit: contain;
+}
+
+/* Tarjeta destacada (primera promoción) */
+.promo-card.promo-destacada {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  flex: 1 1 calc(33.333% - 15px);
+  max-width: 350px;
+  height: 50px;
+  position: relative;
+  overflow: hidden;
+}
+
+.promo-card.promo-destacada::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  right: -50%;
+  width: 200%;
+  height: 200%;
+  background: rgba(255, 255, 255, 0.1);
+  transform: rotate(45deg);
+  transition: all 0.5s ease;
+}
+
+.promo-card.promo-destacada:hover::before {
+  right: -100%;
+}
+
+.promo-card.promo-destacada h3 {
+  color: white;
+  font-size: 0.9rem;
+}
+
+.promo-card.promo-destacada p {
+  color: rgba(255, 255, 255, 0.9);
+  font-size: 0.7rem;
+}
+
+/* ========================================
+   RESPONSIVE - TABLET
+   ======================================== */
+
+@media (max-width: 768px) {
+  .promociones-container {
+    gap: 12px;
+  }
+  
+  .promo-card {
+    flex: 1 1 calc(50% - 10px);
+    min-width: 150px;
+    height: 50px;
+    padding: 8px 15px;
+  }
+  
+  .promo-card h3 {
+    font-size: 0.85rem;
+  }
+  
+  .promo-card p {
+    font-size: 0.65rem;
+  }
+  
+  .promo-card.promo-destacada {
+    height: 50px;
+  }
+  
+  .promo-card.promo-destacada h3 {
+    font-size: 0.85rem;
+  }
+}
+
+/* ========================================
+   RESPONSIVE - MOBILE
+   ======================================== */
+
+@media (max-width: 480px) {
+  .promociones-section {
+    padding: 8px 0;
+    margin-bottom: 15px;
+  }
+  
+  .promociones-container {
+    flex-direction: column;
+    gap: 10px;
+    padding: 0 15px;
+  }
+  
+  .promo-card {
+    flex: 1 1 100%;
+    min-width: 100%;
+    height: 50px;
+    padding: 8px 15px;
+  }
+  
+  .promo-card h3 {
+    font-size: 0.85rem;
+  }
+  
+  .promo-card p {
+    font-size: 0.65rem;
+  }
+  
+  .promo-card.promo-destacada {
+    height: 50px;
+  }
+}

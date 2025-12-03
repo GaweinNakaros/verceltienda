@@ -1,0 +1,4 @@
+/* Detalle: estilos mínimos para complementar Bootstrap */
+.card .card-img-top { height: 300px; object-fit: cover; }
+@media (max-width: 768px) { .card .card-img-top { height: 220px; } }
+

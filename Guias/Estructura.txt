@@ -1,0 +1,30 @@
+src/
+├── context/
+│   ├── AuthContext.jsx ← Autenticación invitado/admin + persistencia localStorage
+│   ├── CarritoContext.jsx ← Lógica de carrito (agregar, quitar, totales)
+│   ├── ApiContext.jsx ← CRUD productos + actualización de stock post-pago
+│   ├── CategoriasContext.jsx ← Gestión y filtrado de categorías
+│   ├── PromocionesContext.jsx ← Promociones destacadas (vigencia, estado)
+│   ├── BannersContext.jsx ← Banners para slider principal (tipos de contenido)
+│   └── SliderContext.jsx ← Estado y control programático de sliders
+├── pages/
+│   ├── App.jsx ← Providers + rutas + ThemeProvider + HelmetProvider + ToastContainer
+│   ├── productos.jsx ← Catálogo con búsqueda (?q=), paginación (?page=), filtro (?categoria=)
+│   ├── productoDetalle.jsx ← Detalle con SEO dinámico y toasts al agregar
+│   ├── AdminProductos.jsx ← CRUD productos solo admin con validaciones
+│   ├── carrito_simple.jsx ← Gestión accesible del carrito + toasts
+│   ├── navbar.jsx ← Navegación con iconos, badge de carrito y sesión
+│   ├── IniciarSesion.jsx ← Login invitado/admin con toasts y Helmet
+│   ├── Pago.jsx ← Página protegida de compra + actualización stock
+│   ├── RutaProtegida.jsx / RutaSoloAdmin.jsx ← Guards de acceso
+│   └── inicio.jsx / servicios.jsx ← Páginas informativas con Helmet
+├── styles/
+│   ├── GlobalStyle.js ← Estilos globales y variables CSS derivadas del theme
+│   └── theme.js ← Tokens de diseño (colores, radius, shadow)
+├── components/ ← Slider, CategoriasSlider, PromocionesDestacadas, etc.
+└── assets/ ← Recursos (imágenes, JSON de productos, etc.)
+
+Notas rápidas:
+- Toasts (react-toastify) reemplazan alert/confirm para feedback no bloqueante.
+- Helmet añade título y meta descripción por página (SEO básico).
+- Accesibilidad: role="main", aria-labelledby, aria-label en botones críticos.

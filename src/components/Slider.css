@@ -1,0 +1,274 @@
+/* ========================================
+   COMPONENTE SLIDER REUTILIZABLE
+   ======================================== */
+
+/* Contenedor principal del slider */
+.slider-container {
+  position: relative;
+  width: calc(100% - 30px);
+  overflow: hidden;
+  background: #f0f0f0;
+  border-radius: 8px;
+  margin: 0 15px;
+}
+
+/* Contenedor de todos los slides */
+.slider-contenido {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  display: flex;
+}
+
+/* Cada slide individual */
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  transition: transform 0.8s ease-in-out, opacity 0.8s ease-in-out;
+}
+
+/* Slide activo visible en el centro */
+.slide.activo {
+  opacity: 1;
+  z-index: 2;
+  transform: translateX(0);
+}
+
+/* Slide que está saliendo (va desapareciendo) */
+.slide.saliendo {
+  opacity: 0;
+  z-index: 1;
+  transform: translateX(0);
+}
+
+/* Slides fuera de vista (esperando) */
+.slide.fuera {
+  opacity: 0;
+  z-index: 0;
+  transform: translateX(0);
+  transition: none; /* Sin transición para reposicionar instantáneamente */
+}
+
+/* Imagen del slide */
+.slide img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Imagen completa sin texto (solo-imagen) */
+.slide-imagen-completa {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  display: block;
+  border-radius: 8px;
+}
+
+/* Contenido de texto superpuesto sobre la imagen */
+.slide-contenido-texto {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 2;
+  width: 90%;
+  max-width: 800px;
+  padding: 30px;
+  background: rgba(0, 0, 0, 0.5);
+  border-radius: 8px;
+  backdrop-filter: blur(5px);
+  text-align: center;
+  color: white;
+}
+
+.slide-contenido-texto h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+.slide-contenido-texto p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Placeholder del slide */
+.slide-placeholder {
+  width: 100%;
+  height: 100%;
+  position: relative;
+  border-radius: 8px;
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  color: white;
+  padding: 30px;
+}
+
+.slide-placeholder h2 {
+  font-size: 2.5rem;
+  margin-bottom: 15px;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+  font-weight: 700;
+}
+
+.slide-placeholder p {
+  font-size: 1.2rem;
+  opacity: 0.95;
+  text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
+}
+
+/* Slider vacío */
+.slider-vacio {
+  width: 100%;
+  height: 100%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #999;
+  font-size: 1.2rem;
+}
+
+/* ========================================
+   INDICADORES
+   ======================================== */
+
+.slider-indicadores {
+  position: absolute;
+  bottom: 20px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 10px;
+  z-index: 2;
+}
+
+.indicador {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: 2px solid white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.indicador.activo {
+  background: white;
+  transform: scale(1.2);
+}
+
+.indicador:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.1);
+}
+
+/* ========================================
+   FLECHAS DE NAVEGACIÓN
+   ======================================== */
+
+.slider-flecha {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.9);
+  color: #333;
+  border: none;
+  font-size: 2rem;
+  line-height: 1;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  z-index: 10;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  transition: all 0.3s ease;
+}
+
+.slider-flecha:hover {
+  background: white;
+  box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.slider-flecha:active {
+  transform: translateY(-50%) scale(0.95);
+}
+
+.slider-flecha-izq {
+  left: 20px;
+}
+
+.slider-flecha-der {
+  right: 20px;
+}
+
+/* ========================================
+   RESPONSIVE
+   ======================================== */
+
+@media (max-width: 768px) {
+  .slide-placeholder h2 {
+    font-size: 2rem;
+  }
+
+  .slide-placeholder p {
+    font-size: 1rem;
+  }
+
+  .slider-flecha {
+    width: 40px;
+    height: 40px;
+    font-size: 1.6rem;
+  }
+
+  .slider-flecha-izq {
+    left: 10px;
+  }
+
+  .slider-flecha-der {
+    right: 10px;
+  }
+}
+
+@media (max-width: 480px) {
+  .slide-placeholder {
+    padding: 15px;
+  }
+
+  .slide-placeholder h2 {
+    font-size: 1.5rem;
+  }
+
+  .slide-placeholder p {
+    font-size: 0.9rem;
+  }
+
+  .slider-flecha {
+    width: 35px;
+    height: 35px;
+    font-size: 1.4rem;
+  }
+
+  .indicador {
+    width: 10px;
+    height: 10px;
+  }
+}

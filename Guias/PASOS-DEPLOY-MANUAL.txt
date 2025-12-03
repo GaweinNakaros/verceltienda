@@ -1,0 +1,42 @@
+DEPLOY ACTUAL (GITHUB PAGES VIA ACTIONS)
+=======================================
+Procedimiento oficial vigente para publicar la aplicación.
+
+REQUISITOS
+----------
+- Rama de desarrollo: `rama-de-trabajo`.
+- Workflow: `.github/workflows/deploy-gh-pages.yml`.
+- `vite.config.js` con `base` de producción: `/Proyecto-React/`.
+
+PASOS
+-----
+1. Realiza cambios y commit en `rama-de-trabajo`.
+2. Ejecuta `git push`.
+3. El workflow corre automáticamente:
+   - Instala dependencias: `npm install --legacy-peer-deps`.
+   - Construye: `npm run build`.
+   - Publica artefacto `dist/` a GitHub Pages.
+4. Abre Actions → último run → confirma "Deploy to GitHub Pages" exitoso.
+5. Visita la URL de Pages para verificar carga de assets y rutas.
+
+VERIFICACIÓN RÁPIDA
+-------------------
+```powershell
+git push
+# Luego: GitHub → Actions → último workflow → estado verde
+```
+
+TROUBLESHOOTING
+---------------
+- Página en blanco: revisar `base` en `vite.config.js`.
+- 404 en assets: confirmar build correcto y workflow sin errores.
+- Peer deps React 19: usar `--legacy-peer-deps` (ya en workflow).
+- Warnings Helmet: evaluar alternativas si persisten.
+
+MANTENIMIENTO
+-------------
+- Ramas activas: `main` (estable), `rama-de-trabajo` (desarrollo).
+- Usar tags para versiones: `git tag vX.Y.Z && git push origin vX.Y.Z`.
+- No recrear `gh-pages` salvo caso excepcional.
+
+Este documento contiene únicamente el procedimiento actual; toda referencia a métodos manuales antiguos fue eliminada según solicitud.

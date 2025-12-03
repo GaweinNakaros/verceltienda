@@ -1,0 +1,12 @@
+.site-footer {
+  font-size: 0.85rem;
+  border-top: 1px solid rgba(255,255,255,.15);
+}
+.site-footer .footer-disclaimer {
+  max-width: 520px;
+  line-height: 1.25;
+  text-align: center;
+}
+@media (max-width: 576px) {
+  .site-footer .footer-disclaimer { text-align: left; }
+}

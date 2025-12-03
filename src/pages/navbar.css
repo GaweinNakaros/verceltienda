@@ -1,0 +1,37 @@
+/* Navbar simplificada: solo gradiente y estados básicos */
+.navbar-gradient {
+  background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+  margin: 10px 15px 0 15px;
+  border-radius: 8px;
+  padding-top: 4px;
+  padding-bottom: 4px;
+}
+
+.navbar-gradient .nav-link {
+  color: #fff;
+  border-radius: 0.5rem;
+  padding: 0.35rem 0.6rem;
+}
+
+.navbar-gradient .nav-link:hover,
+.navbar-gradient .nav-link:focus {
+  background-color: rgba(255, 255, 255, 0.18);
+  color: #fff;
+}
+
+.navbar-gradient .nav-link.active {
+  background-color: rgba(255, 255, 255, 0.30);
+  font-weight: 600;
+}
+
+.navbar-gradient .nav-link:focus-visible,
+.navbar-gradient .btn:focus-visible {
+  outline: 2px solid #fff;
+  outline-offset: 2px;
+}
+
+/* Reducir altura general de controles dentro del nav */
+.navbar-gradient .btn { padding: 0.3rem 0.6rem; font-size: 0.9rem; }
+.navbar-gradient .navbar-toggler { padding: 0.25rem 0.35rem; }
+
+  
