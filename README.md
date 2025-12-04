@@ -8,7 +8,7 @@ Aplicación de catálogo con autenticación (invitado/admin), carrito de compras
 
 - Inicio de sesión:
 	- Invitado: ingresa cualquier email válido y accede sin contraseña.
-	- Admin: usa el email preconfigurado `admin@gmail.com.ar` y la contraseña definida en `AuthContext`.
+	- Admin: usa el email preconfigurado `admin@gmail.com.ar` y la contraseña definida en `AuthContext` (admin).
 - Navegación:
 	- Catálogo: `/productos` (búsqueda por nombre/categoría y paginación).
 	- Detalle de producto: `/productos/:id`.
